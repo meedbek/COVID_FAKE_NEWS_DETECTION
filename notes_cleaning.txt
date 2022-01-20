@@ -1,61 +1,8 @@
-objectif du projet : l'apprentissage automatique sur text avec réseaux de neurones en utilisant 
-                    l'algorithme de BPG back progatation
-sujet de projet : classification des texts pour distinquer les FAKE news des REAL news
-données : base de données avec des publications sur les réseaux sociaux labelé(titrage) manuellement 
-Parties du projet : 
-    -extractions(mapping) des données sous forme attributs
-    (rappel cours tout les algorithme de machine learning
-        necessite des données sous format matricielle 
-        a part le deep learning)
-    - apprentissage en utilisant le BPG
-Le programme contient 4 partie majeures : 
-    -interface graphique
-    -phase de vectorisation
-    -phase d'apprentissage et test
-    -phase de verification
-
-
-Text Mining :
-    objectif1 : distinquer les attributs
-    objectif2  : remplire les valeurs des differentes attributs
-
-    Etape1 : Nettoyage du contenu (pour notre projet cette partie nous ne concerne pas)
-    Etape2 : Normalisation (ce qui est utile et pas utile)
-        ponctuation,
-        caractères spéciaux,
-        chiffres,
-        harmonization de la case (majuscule , minuscule) ...
-    Etape3 : Tokenization 
-        Diviser le Text en un ensemble de tokens(mots)
-    
-
-    Etape4 : indexation (Definir les attributs)
-	il y plusieurs facons (mais la facons qui nous concerne est)
-		bag of words (ce que nous devons utiliser) 
-			prendre tout les tokens de tous les textes(eliminer les redendences)
-		N-gramme en mots(possible de l'utiliser)
-		N-gramme en lettres(on va pas l'utiliser)
-    Etape 5 : ponderation donner des valeurs au attributs
-	Pour la methode bag of words dans notre projet les valeurs seront 
-	le nombre de fois un mot se répète(fréquence des terme TF : Term Frequency)
-    	-cette methode à un problème c'est que elle ne prend pas consideration  la longueur de 
-	texte la solution c'est appliquer une fonction de normalisation
-	methode TF-IDF
-    Etape 6 : reduction de dimentionalité
-	la méthode précédente nous génère beaucoup de donnée avec de 0 
-	la solution et de reduire la dimentionalité
-	etape 1 : retrait des stopWords (nous sommes emmené à choisir une liste des stopWords a retraire
-					 et donner la raison )
-	etape2 : lemmatisation(convertir les mots qui se repetent avec plusieurs formes 
-				pluriel,feminin,conjugaison...)
-		 Au lieu de lemmatisation on peut utiliser le stemming
-			reduire les mots a ces racines qui peut ne pas exister
-			l'algo de Porter est le plus utiliser pour la langue anglaise( c'est ce que nous devons faire)
-	etape3 : filtrage par frequence(a voir si on l'utilisera ou non)
-
-Pour creer le reseau de neurone il faut essayer plusieurs modele et choisir le meilleur(c'est a nous de choisir le nombre de couches etc...)		
-	 
-			
-
-1 fevrier a 9h
-        
+ponctuation : eliminer
+caractère spéciaux : eliminer 
+harmonization : everything lowercase
+remove stop words
+remove emojis
+remove urls
+remove numbers / numbers included in words
+Contraction Replacement
