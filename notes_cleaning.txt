@@ -2,7 +2,7 @@ ponctuation : eliminer
 caractère spéciaux : eliminer 
 harmonization : everything lowercase
 remove stop words
-remove emojis
-remove urls
-remove numbers / numbers included in words
+remove emojis !!! done
+remove urls !!! done
+remove numbers / numbers included in words /can be easly done
 Contraction Replacement
