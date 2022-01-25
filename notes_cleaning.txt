@@ -1,8 +1,7 @@
-ponctuation : eliminer
-caractère spéciaux : eliminer 
-harmonization : everything lowercase
-remove stop words
+ponctuation : eliminer !!! done
+caractère spéciaux : eliminer !!! done
+harmonization : everything lowercase !!! done
+remove stop words !!! done
 remove emojis !!! done
 remove urls !!! done
-remove numbers / numbers included in words /can be easly done
-Contraction Replacement
+remove numbers / numbers included in words !!!done
