@@ -325,8 +325,6 @@ def bagOfWords(df):
     return bag
 
 
-
-
 def redDim(dfVec,seuil1,seuil2):
     subDf = dfVec[dfVec != 0]
     map = subDf.count(axis = 0) <= seuil1 

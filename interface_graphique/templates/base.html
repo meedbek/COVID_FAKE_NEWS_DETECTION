@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - Covid Fake News Detection</title>
+    <style>
+        nav a {
+            color: #d64161;
+            margin-left: 50px;
+            text-decoration: none;
+            font-size : 50px;
+        }
+        body{
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            min-height: 120vh;
+            display : flex;
+            flex-direction : column ;
+            align-items: center;
+            font-size : 25px;
+        }
+        form{
+            display : flex;
+            flex-direction : column;
+            align-items: center;
+        }
+        .submit{
+            width : 100px;
+            height: 50px;
+            border:1px solid;
+            border-radius:5px;
+            cursor : pointer;
+            font-size: large;
+            background-color : rgb(65, 62, 62);
+            color : white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Covid Fake News Detection</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

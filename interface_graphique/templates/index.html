@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post">
+        <label for="title">Enter tweet or any social media post</label>
+        <br/>
+        <textarea name="tweet" cols="80" rows="10">{{request.form['tweet']}}</textarea>
+        <p>{{result[0]}}</p>
+        <button type="submit" class="submit">Test</button>
+    </form>
+{% endblock %}
