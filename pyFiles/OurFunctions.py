@@ -4,7 +4,7 @@ import nltk as nk
 import re 
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
-from torch.utils.data import Dataset
+import torch
 # Thanks to https://www.kaggle.com/rftexas/text-only-kfold-bert
 abbreviations = {
     "$" : " dollar ",
@@ -336,12 +336,17 @@ def redDim(dfVec,seuil1,seuil2):
     
     return resultDf,columns_dropped
 
-class Covid_Dataset(Dataset):
-    def __init__(self, data, targets):
-        super(Covid_Dataset, self)
-        self.data = data
-        self.targets = targets
-    def __getitem__(self, idx):
-        return self.data[idx], self.targets[idx]
-    def __len__(self):
-        return len(self.targets)
+#this funtion will allow us to drop columns we dropped from the tweet we want to predict to make its form compatible with the model
+def drop_columns(tokens,weights,tokens_toDrop):
+    mydf = pd.DataFrame(data=weights.toarray(),columns=tokens)
+    resultDf = mydf.drop(tokens_toDrop,axis=1)
+    return resultDf
+    
+#this function will prepare the tweet that the model will predict it returns a tensor 
+def transformInput(tweet,tfIdf,columnsToDrop):
+    tweet = preprocess(tweet)
+    if(len(columnsToDrop)!=0):
+        preparedTweet = drop_columns(tfIdf.get_feature_names_out(),tfIdf.transform([tweet]),columnsToDrop)
+        return torch.tensor(preparedTweet.to_numpy())
+    preparedTweet = tdIdf.transform([tweet]).toarray()
+    return torch.tensor(preparedTweet)

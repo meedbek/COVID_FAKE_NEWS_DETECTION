@@ -1,11 +1,17 @@
+import sys
+  
+# adding pyFiles to the system path
+sys.path.insert(0, '../pyFiles')
+
 from flask import Flask, render_template, request, url_for, flash, redirect
 import OurFunctions as F
 import pickle
 import numpy as np
 import torch
 
-tfidf = pickle.load(open("tfidf.pkl",'rb'))
-CovidModel = torch.load('CovidNN.pkl')
+tfidf = pickle.load(open("../models/tfidf.pkl",'rb'))
+CovidModel = torch.load('../models/model18/model18.pkl')
+columns = pickle.load(open("../models/model18/columns18.pkl",'rb'))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sssjjjjjccccc'
@@ -18,8 +24,7 @@ def index():
         if not tweet:
             output[0] = ''
         else:
-            processedText = F.preprocess(request.form['tweet'])
-            data = torch.tensor(tfidf.transform([processedText]).toarray()[0])
+            data = F.transformInput(tweet,tfidf,columns)
             modeloutput = CovidModel(data.float())
             FakeOrTrue = torch.argmax(modeloutput)
             if(FakeOrTrue == 0):
